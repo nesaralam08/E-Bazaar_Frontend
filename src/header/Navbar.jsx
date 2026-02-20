@@ -34,20 +34,22 @@ function Navbar() {
       <div className="navbar-start">
         {/* Mobile Menu */}
         <div className="dropdown lg:hidden">
-          <label tabIndex={0} className="btn btn-ghost">
+          <label tabIndex={0} className="btn btn-ghost text-3xl">
             ☰
           </label>
 
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 z-[100]"
+            className="menu menu-sm gap-2 dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 z-[100]"
           >
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/" className="font-semibold bg-base-300">Home</Link>
             </li>
-
             <li>
-              <span className="font-semibold">Categories</span>
+              <Link to="/products" className="font-semibold bg-base-300">Products</Link>
+            </li>
+            <li>
+              <span className="font-semibold">Categories </span>
               <ul>
                 {loading ? (
                   <li>
@@ -55,16 +57,12 @@ function Navbar() {
                   </li>
                 ) : (
                   category.map((c) => (
-                    <li key={c.id}>
-                      <Link to={`/category/${c.id}`}>{c.name}</Link>
+                    <li key={c.id} className="hover:text-white">
+                      <Link to={`/products/category/${c.id}`}>{c.name}</Link>
                     </li>
                   ))
                 )}
               </ul>
-            </li>
-
-            <li>
-              <Link to="/products">Products</Link>
             </li>
           </ul>
         </div>

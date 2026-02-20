@@ -9,6 +9,8 @@ import ProductDetails from "../components/ProductDetails";
 import Cart from "../components/Cart";
 import ItemsByCategory from '../components/ItemsByCategory'
 import SearchResults from "../components/SearchResults";
+import Contact from "../components/Contact";
+import About from "../components/About";
 
 function Routess() {
   return (
@@ -21,6 +23,8 @@ function Routess() {
         <Route path="/cart" element={<Cart/>}></Route>
         <Route path="/products/category/:categoryId" element={<ItemsByCategory/>}></Route>
         <Route path="/search" element={<SearchResults/>}></Route>
+        <Route path="/contact" element={<Contact/>}></Route>
+        <Route path="/about" element={<About/>}></Route>
         <Route path="*" element={<NotFound />}></Route>
       </Routes>
       <Footer />

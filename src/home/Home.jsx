@@ -5,9 +5,9 @@ function Home() {
     <div className="bg-base-200 min-h-screen w-full">
       <figure className="diff aspect-16/9 min-h-screen" tabIndex={0}>
         <div className="diff-item-1" role="img" tabIndex={0}>
-          <div className="bg-slate-800 text-primary-content grid place-content-center text-9xl font-black">
+          <div className="bg-slate-800 text-primary-content grid place-content-center  text-6xl md:text-9xl  font-black">
             E-Bazaar
-            <span className="text-rotate text-7xl leading-[2]">
+            <span className="text-rotate text-4xl lg:text-7xl leading-[2]">
             <span className="justify-items-center">
               <span>📐 DESIGN</span>
               <span>⌨️ DEVELOP</span>
@@ -20,9 +20,9 @@ function Home() {
           </div>
         </div>
         <div className="diff-item-2" role="img">
-          <div className="bg-base-200 grid place-content-center text-9xl font-black">
+          <div className="bg-base-200 grid place-content-center text-6xl md:text-9xl font-black">
             E-Bazaar
-            <span className="text-rotate text-7xl leading-[2]">
+            <span className="text-rotate text-4xl md:text-7xl leading-[2]">
             <span className="justify-items-center">
               <span>📐 DESIGN</span>
               <span>⌨️ DEVELOP</span>
