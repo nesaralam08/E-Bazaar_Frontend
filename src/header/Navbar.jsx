@@ -1,11 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import AxiosInstance from "../utils/AxiosInstance";
 import CategoryDropdown from "../components/CategoryDropdown";
 
 function Navbar() {
   const [category, setCategory] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [query, setQuery] = useState("");
+  const navigate = useNavigate();
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (query.trim()) {
+      navigate(`/search?q=${query}`);
+      setQuery("")
+    }
+  };
 
   useEffect(() => {
     AxiosInstance.get("/api/category")
@@ -86,11 +95,15 @@ function Navbar() {
       {/* 🔹 Navbar End */}
       <div className="navbar-end gap-2">
         {/* Cart */}
-        <input
-          type="text"
-          placeholder="Search items"
-          className="input input-bordered w-48 md:w-auto px-2"
-        />
+        <form onSubmit={handleSearch}>
+          <input
+            type="text"
+            placeholder="Search items"
+            className="input input-bordered w-48 md:w-auto px-2"
+            value={query}
+            onChange={(e)=>setQuery(e.target.value)}
+          />
+        </form>
 
         <div className="dropdown dropdown-end">
           <Link to={"/cart"}>

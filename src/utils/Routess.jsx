@@ -8,6 +8,7 @@ import ProductGrid from "../components/ProductList";
 import ProductDetails from "../components/ProductDetails";
 import Cart from "../components/Cart";
 import ItemsByCategory from '../components/ItemsByCategory'
+import SearchResults from "../components/SearchResults";
 
 function Routess() {
   return (
@@ -19,6 +20,7 @@ function Routess() {
         <Route path="/products/:productId" element={<ProductDetails/>}></Route>
         <Route path="/cart" element={<Cart/>}></Route>
         <Route path="/products/category/:categoryId" element={<ItemsByCategory/>}></Route>
+        <Route path="/search" element={<SearchResults/>}></Route>
         <Route path="*" element={<NotFound />}></Route>
       </Routes>
       <Footer />
