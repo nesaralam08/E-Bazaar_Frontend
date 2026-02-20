@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import AxiosInstance from "../utils/AxiosInstance";
 import PageLoading from "../utils/PageLoading";
 import ProductGrid from "./ProductList";
-import {handleSuccess,handleError} from '../utils/Toast'
+import { handleSuccess, handleError } from "../utils/Toast";
 function ProductDetails() {
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
@@ -30,7 +30,7 @@ function ProductDetails() {
     try {
       const res = await AxiosInstance.post("/api/cart/add", data);
       console.log("Added to cart:", res.data);
-      
+
       handleSuccess("Product added to cart");
     } catch (error) {
       console.error(error);
@@ -60,12 +60,22 @@ function ProductDetails() {
             {/* Main Layout */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* Image Section */}
-              <div className="card bg-white p-6">
-                <img
-                  src={product.imageUrl || "https://via.placeholder.com/400"}
-                  alt={product.name}
-                  className="w-full max-h-[400px] object-contain"
-                />
+              <div className="hover-3d">
+                <div className="card bg-white p-6">
+                  <img
+                    src={product.imageUrl || "https://via.placeholder.com/400"}
+                    alt={product.name}
+                    className="w-full max-h-[400px] object-contain"
+                  />
+                </div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
               </div>
 
               {/* Details Section */}
@@ -114,7 +124,7 @@ function ProductDetails() {
                   <button
                     disabled={!product.available}
                     className="btn bg-slate-800 text-white hover:bg-slate-950 flex-1"
-                    onClick={()=>addToCart(product.id,1)}
+                    onClick={() => addToCart(product.id, 1)}
                   >
                     Add to Cart
                   </button>
@@ -151,9 +161,11 @@ function ProductDetails() {
             </div>
           </div>
           <div className="flex items-center justify-center">
-            <h1 className="text-xl lg:text-3xl font-semibold text-slate-800">You might also like</h1>
+            <h1 className="text-xl lg:text-3xl font-semibold text-slate-800">
+              You might also like
+            </h1>
           </div>
-          <ProductGrid/>
+          <ProductGrid />
         </>
       )}
     </>

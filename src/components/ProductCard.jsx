@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import AxiosInstance from "../utils/AxiosInstance";
-import {handleSuccess,handleError} from '../utils/Toast'
+import { handleSuccess, handleError } from "../utils/Toast";
 const ProductCard = ({ product }) => {
   const addToCart = async (productId, quantity = 1) => {
     const data = {
@@ -13,7 +13,7 @@ const ProductCard = ({ product }) => {
     try {
       const res = await AxiosInstance.post("/api/cart/add", data);
       console.log("Added to cart:", res.data);
-      
+
       handleSuccess("Product added to cart");
     } catch (error) {
       console.error(error);
@@ -23,13 +23,23 @@ const ProductCard = ({ product }) => {
   return (
     <div className="card w-full max-w-sm bg-base-100 shadow-md hover:shadow-xl transition-shadow duration-300 border">
       {/* Image */}
-      <figure className="h-48 bg-white">
-        <img
-          src={product.imageUrl}
-          alt={product.name}
-          className="h-40 object-contain"
-        />
-      </figure>
+      <div className="hover-3d">
+        <figure className="h-48 bg-white rounded-2xl">
+          <img
+            src={product.imageUrl}
+            alt={product.name}
+            className="h-40 object-contain"
+          />
+        </figure>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
 
       {/* Body */}
       <div className="card-body p-4 space-y-2 bg-base-200">
@@ -88,7 +98,7 @@ const ProductCard = ({ product }) => {
                 ? "bg-slate-800 text-white hover:bg-slate-950"
                 : "btn-disabled"
             }`}
-            onClick={()=>addToCart(product.id,1)}
+            onClick={() => addToCart(product.id, 1)}
           >
             Add to Cart
           </Link>

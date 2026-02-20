@@ -61,7 +61,7 @@ function Navbar() {
         </div>
 
         {/* Logo */}
-        <Link to="/" className="btn btn-ghost text-xl">
+        <Link to="/" className="hidden md:block md:h btn btn-ghost text-xl">
           E-Bazaar
         </Link>
       </div>
@@ -86,8 +86,14 @@ function Navbar() {
       {/* 🔹 Navbar End */}
       <div className="navbar-end gap-2">
         {/* Cart */}
+        <input
+          type="text"
+          placeholder="Search items"
+          className="input input-bordered w-48 md:w-auto px-2"
+        />
+
         <div className="dropdown dropdown-end">
-          <Link to={'/cart'}>
+          <Link to={"/cart"}>
             <label tabIndex={0} className="btn btn-ghost btn-circle text-xl">
               🛒
             </label>
@@ -98,7 +104,10 @@ function Navbar() {
         <div className="dropdown dropdown-end">
           <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
             <div className="w-10 rounded-full">
-              <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" alt="profile" />
+              <img
+                src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                alt="profile"
+              />
             </div>
           </label>
 
